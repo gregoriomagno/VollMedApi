@@ -17,8 +17,10 @@ public class PacienteServiceImpl implements PacienteService{
     @Autowired
     private PacienteRepository repository;
     @Override
-    public void inserir(DadosCadastroPaciente dto) {
-        repository.save(new Paciente(dto));
+    public Paciente inserir(DadosCadastroPaciente dto) {
+
+        return repository.save(new Paciente(dto)
+        );
     }
 
 //    @Override
@@ -31,9 +33,10 @@ public class PacienteServiceImpl implements PacienteService{
 
     }
     @Override
-    public void atualizar(DadosAtualizarPaciente dto, Long id){
+    public Paciente atualizar(DadosAtualizarPaciente dto, Long id){
         var paciente = repository.getReferenceById(id);
         paciente.atualizarDados(dto);
+        return paciente;
     }
     @Override
     public ResponseEntity deletar(Long id){

@@ -10,12 +10,12 @@ import org.springframework.http.ResponseEntity;
 
 public interface PacienteService {
 
-    public void inserir(DadosCadastroPaciente dto);
+    public Paciente inserir(DadosCadastroPaciente dto);
 
 //    public Paciente buscar(Long id);
     public Page<DadosListagemPaciente> listar(Pageable pageable);
 
-    public void atualizar(DadosAtualizarPaciente dto, Long id);
+    public Paciente atualizar(DadosAtualizarPaciente dto, Long id);
 
     public ResponseEntity deletar(Long id);
 
